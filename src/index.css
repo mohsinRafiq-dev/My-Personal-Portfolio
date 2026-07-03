@@ -47,6 +47,14 @@ canvas#gl{position:fixed;inset:0;width:100%;height:100%;z-index:1;pointer-events
 #loader .line i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--cyan))}
 #loader .num{font-family:var(--mono);font-size:.72rem;letter-spacing:.3em;color:var(--dim);margin-top:1rem}
 #loader .curtain{position:absolute;inset:0;background:var(--blue);transform:translateY(101%)}
+/* On narrow phones the title (one non-breaking line in the wide Syne face) overflows
+   the right edge — size it against Syne's real width (~24x the font size) so the whole
+   "Mohsin Rafiq / Portfolio" fits, and keep everything padded from the edges. */
+@media (max-width:480px){
+  #loader .in{max-width:100%;padding-inline:.8rem}
+  #loader .word{font-size:clamp(.72rem,3.7vw,1.2rem);letter-spacing:.02em}
+  #loader .num{font-size:.6rem;letter-spacing:.16em}
+}
 
 /* ── Cursor (desktop soul) ── */
 .cur{position:fixed;top:0;left:0;z-index:99;pointer-events:none;display:none;border-radius:50%;
